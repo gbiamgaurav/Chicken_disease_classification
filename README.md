@@ -20,3 +20,11 @@
 
 ## Run tensorboard
 tensorboard --logdir artifacts/prepare_callbacks/tensorboard_log_dir/
+
+## DVC
+
+`dvc init`
+
+`dvc repro`
+
+`dvc dag`
