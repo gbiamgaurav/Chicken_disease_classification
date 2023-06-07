@@ -5,10 +5,10 @@ stages:
     deps:
     - path: config/config.yaml
       md5: 530a2ca5276c5edbad198f7a5c647f5f
-      size: 780
+      size: 802
     - path: src/chicken_disease/pipeline/stage_02_prepare_base_model.py
       md5: ae67759644ee49c6b0f5d66d02ef9b22
-      size: 944
+      size: 971
     params:
       params.yaml:
         CLASSES: 2
@@ -21,7 +21,7 @@ stages:
         WEIGHTS: imagenet
     outs:
     - path: artifacts/prepare_base_model
-      md5: 27aaa3fefd323744a09edc343512f00f.dir
+      md5: d503e5775c52d781db97fc5dded55b71.dir
       size: 118054560
       nfiles: 2
   data_ingestion:
@@ -29,10 +29,10 @@ stages:
     deps:
     - path: config/config.yaml
       md5: 530a2ca5276c5edbad198f7a5c647f5f
-      size: 780
+      size: 802
     - path: src/chicken_disease/pipeline/stage_01_data_ingestion.py
       md5: 3328ae47361524fa8610295b55f17783
-      size: 866
+      size: 893
     outs:
     - path: artifacts/data_ingestion/Chicken-fecal-images
       md5: 9e1f8dd2eae3c29e9d635df89d438ae4.dir
@@ -46,18 +46,18 @@ stages:
       size: 12207807
       nfiles: 390
     - path: artifacts/prepare_base_model
-      md5: 27aaa3fefd323744a09edc343512f00f.dir
+      md5: d503e5775c52d781db97fc5dded55b71.dir
       size: 118054560
       nfiles: 2
     - path: config/config.yaml
       md5: 530a2ca5276c5edbad198f7a5c647f5f
-      size: 780
+      size: 802
     - path: src/chicken_disease/components/prepare_callbacks.py
       md5: f9c06e84ba6eed2d5389dfccb5066da3
-      size: 1034
+      size: 1073
     - path: src/chicken_disease/pipeline/stage_03_training.py
       md5: e626f5c65b26eb64d8b57e1d028bb6aa
-      size: 1173
+      size: 1207
     params:
       params.yaml:
         AUGMENTATION: true
@@ -69,7 +69,7 @@ stages:
         - 3
     outs:
     - path: artifacts/training/model.h5
-      md5: 0bc20e5c20634bb6070026f7a406acf6
+      md5: d76da6292266119f1f43778f5f0d517b
       size: 59337520
   evaluation:
     cmd: python src/chicken_disease/pipeline/stage_04_evaluation.py
@@ -79,14 +79,14 @@ stages:
       size: 12207807
       nfiles: 390
     - path: artifacts/training/model.h5
-      md5: 0bc20e5c20634bb6070026f7a406acf6
+      md5: d76da6292266119f1f43778f5f0d517b
       size: 59337520
     - path: config/config.yaml
       md5: 530a2ca5276c5edbad198f7a5c647f5f
-      size: 780
+      size: 802
     - path: src/chicken_disease/pipeline/stage_04_evaluation.py
       md5: 3dd00a31c966374b0eb8541e6ede8ff7
-      size: 819
+      size: 848
     params:
       params.yaml:
         BATCH_SIZE: 16
@@ -96,5 +96,5 @@ stages:
         - 3
     outs:
     - path: scores.json
-      md5: a3a287cd6c7d988c61df38c405969a2b
-      size: 55
+      md5: bca06d737c3ca9d5c56eb5904d8d898f
+      size: 58
