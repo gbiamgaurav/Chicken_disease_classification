@@ -52,3 +52,19 @@ Save the URI = "331777385192.dkr.ecr.us-east-1.amazonaws.com/chicken-disease"
 
 `docker --version`
 
+
+## Azure Deployment 
+
+login server = chicken.azurecr.io 
+
+
+
+## Run from terminal
+
+docker build -t chicken.azurecr.io/chicken:latest .
+
+docker login chicken.azurecr.io
+
+docker push chicken.azurecr.io/chicken:latest
+
+
